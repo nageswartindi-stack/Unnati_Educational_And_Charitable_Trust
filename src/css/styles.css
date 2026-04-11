@@ -33,20 +33,37 @@ html, body {
   padding: 1rem; 
 }
 
+main {
+  padding-top: 96px;
+}
+
+[id] {
+  scroll-margin-top: 120px;
+}
+
 /* Header */
 .site-header { 
-  position: sticky; 
+  position: fixed; 
   top: 0; 
-  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%); 
-  backdrop-filter: blur(12px); 
-  border-bottom: 2px solid rgba(0,121,107,0.1); 
-  box-shadow: 0 4px 20px rgba(0,121,107,0.1);
-  z-index: 50; 
-  transition: all 0.3s ease;
+  left: 0; 
+  right: 0; 
+  width: 100%;
+  background: rgba(255,255,255,0.94); 
+  backdrop-filter: blur(16px); 
+  border-bottom: 1px solid rgba(0,121,107,0.14); 
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  z-index: 1000; 
+  transition: padding 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.site-header.scrolled {
+  padding: 0.25rem 0;
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
 }
 
 .site-header:hover {
-  box-shadow: 0 6px 30px rgba(0,121,107,0.2);
+  box-shadow: 0 14px 40px rgba(0,121,107,0.16);
 }
 
 .header-inner { 
@@ -54,6 +71,8 @@ html, body {
   align-items: center; 
   justify-content: space-between; 
   padding: 1rem 0; 
+  gap: 1rem;
+  transition: padding 0.25s ease;
 }
 
 .brand { 
@@ -242,6 +261,38 @@ html, body {
 .btn-primary:hover { 
   background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%); 
   color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #00695c;
+  border-color: rgba(0,121,107,0.2);
+}
+
+.btn-secondary:hover {
+  background: #f1f8f7;
+  color: #004d40;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: rgba(38,50,56,0.95);
+  color: #fff;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .section { 
@@ -462,6 +513,75 @@ html, body {
   max-width: 600px; 
   position: relative;
   z-index: 2;
+}
+
+.contact-grid { 
+  display: grid; 
+  grid-template-columns: 1.1fr 1fr; 
+  gap: 2rem; 
+  align-items: start;
+  margin-top: 1.5rem;
+}
+
+.contact-panel { 
+  background: rgba(255,255,255,0.92); 
+  border-radius: var(--radius); 
+  padding: 1.75rem; 
+  box-shadow: var(--shadow); 
+  border: 1px solid rgba(0,121,107,0.1); 
+}
+
+.contact-form-panel { 
+  background: #ffffff; 
+}
+
+.contact-panel p { 
+  color: #455a64; 
+  margin-bottom: 1rem; 
+  line-height: 1.7;
+}
+
+.small-note { 
+  color: #607d8b; 
+  font-size: 0.95rem; 
+  margin-top: 1rem; 
+}
+
+.donation-cards { 
+  display: grid; 
+  grid-template-columns: repeat(3, minmax(220px, 1fr)); 
+  gap: 1.5rem; 
+  margin-top: 1.5rem;
+}
+
+.donation-card { 
+  background: #ffffff; 
+  border-radius: var(--radius); 
+  padding: 1.5rem; 
+  box-shadow: var(--shadow); 
+  border: 1px solid rgba(0,121,107,0.1); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donation-card:hover { 
+  transform: translateY(-3px); 
+  box-shadow: var(--shadow-hover); 
+}
+
+.donation-card h3 { 
+  margin-bottom: 0.8rem; 
+  color: #00695c; 
+}
+
+.donation-card p { 
+  color: #546e7a; 
+  line-height: 1.7; 
+}
+
+.note-text { 
+  margin-top: 1.25rem; 
+  font-size: 0.95rem; 
+  color: #455a64; 
 }
 
 .section-intro { 

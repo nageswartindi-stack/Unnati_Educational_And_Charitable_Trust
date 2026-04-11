@@ -4,8 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navToggle = document.getElementById('nav-toggle');
   const siteNav = document.getElementById('site-nav');
+  const header = document.querySelector('.site-header');
   if (navToggle && siteNav) {
     navToggle.addEventListener('click', () => siteNav.classList.toggle('show'));
+  }
+
+  if (header) {
+    const updateHeaderState = () => {
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    updateHeaderState();
   }
 
   document.querySelectorAll('.nav-item.has-sub .nav-link-sub').forEach(button => {
@@ -35,17 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const donateNow = document.getElementById('donate-now');
-  if (donateNow) {
-    donateNow.addEventListener('click', () => alert('Thank you — this is a demo donation flow.'));
-  }
-
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      alert(`Thanks, ${form.elements['name'].value || 'Friend'}! We received your message (demo).`);
-      form.reset();
+      if (form.action.includes('YOUR_FORM_ID')) {
+        event.preventDefault();
+        alert('Please replace YOUR_FORM_ID in the contact form action with your actual Formspree ID to enable email submission. Or use the WhatsApp button to message us directly.');
+      }
     });
   }
 
@@ -118,4 +127,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', highlightNav);
+
+  // Copy UPI/bank details buttons
+  const copyButtons = document.querySelectorAll('.copy-btn');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  document.body.appendChild(toast);
+
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toast.hideTimeout);
+    toast.hideTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2200);
+  }
+
+  copyButtons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const value = button.dataset.copyValue || '';
+      if (!value) return;
+
+      try {
+        await navigator.clipboard.writeText(value);
+        showToast('Copied to clipboard! Paste it in your payment app.');
+      } catch (error) {
+        showToast('Copy failed — please select and copy manually.');
+      }
+    });
+  });
 });

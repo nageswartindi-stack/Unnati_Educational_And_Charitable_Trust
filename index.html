@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Unnati Educational and Charitable Trust empowers lives through education, compassion, and care. Supporting underprivileged communities with food, clothing, life-skills training, and women's hygiene programs." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unnati Educational and Charitable Trust empowers lives through education, compassion, and care. Supporting underprivileged communities with food, clothing, life-skills training, and women's hygiene programs." />
     <meta name="keywords" content="Unnati Educational and Charitable Trust, education, community support, food distribution, clothing donation, women's hygiene, mental health, non-profit, charity, Bengaluru" />
   <title>Unnati Educational and Charitable Trust</title>
   <link rel="stylesheet" href="src/css/styles.css" />
@@ -14,7 +14,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top">
-        <img src="src/images/logo.svg" alt="Unnati Educational and Charitable Trust" class="logo" />
+        <img src="https://raw.githubusercontent.com/unnatitrust/Unnati_Educational_And_Charitable_Trust/main/src/images/Unnati_Logo.jpg" alt="Unnati Educational and Charitable Trust" class="logo" />
         <div class="brand-text">
           <span class="brand-main">UNNATI</span>
           <span class="brand-subtitle">Educational and Charitable Trust</span>
@@ -25,7 +25,7 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="#about">About</a>
-        <a href="#journey">Our Journey</a>
+        <a href="#journey">Story</a>
 
         <div class="nav-item has-sub" tabindex="0" aria-haspopup="true">
           <button class="nav-link-sub">Programs
@@ -39,8 +39,8 @@
         </div>
 
         <a href="#impact">Impact</a>
-        <a href="#get-involved">Get Involved</a>
-        <a class="btn btn-primary" href="#donate">Donate</a>
+        <a href="#get-involved">How to help</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <div class="contact-info">
@@ -173,7 +173,7 @@
           <p class="team-bio">Oversees program implementation and ensures quality delivery of educational and community support initiatives.</p>
         </div>
         <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=face" alt="Vaibhav Kiranmai Anjali - Program Manager" class="team-photo" />
+          <img src="https://raw.githubusercontent.com/unnatitrust/Unnati_Educational_And_Charitable_Trust/main/src/images/KiranMai.jpg" alt="Vaibhav Kiranmai Anjali - Program Manager" class="team-photo" />
           <h3>Kiranmai</h3>
           <p>Program Manager</p>
           <p class="team-bio">Oversees program implementation and ensures quality delivery of educational and community support initiatives.</p>
@@ -283,10 +283,35 @@
 
     <section id="donate" class="container section cta reveal">
       <div class="cta-inner">
-        <h2>Support the work</h2>
-        <p>Your donation directly funds programs on the ground — even small gifts make a difference.</p>
-        <button class="btn btn-primary" id="donate-now">Donate Now</button>
+        <div>
+          <h2>Support the mission</h2>
+          <p>Your support helps us deliver food, education, hygiene kits, and life-skills training. Every contribution is welcomed, and giving is always optional.</p>
+        </div>
+        <a class="btn" href="#donation">View support options</a>
       </div>
+    </section>
+
+    <section id="donation" class="container section donation reveal">
+      <h2>Support options: GPay, PhonePe, or Bank Transfer</h2>
+      <p class="section-intro">Choose the method that feels most comfortable for you. If you prefer, you can also support us by sharing our work with your friends and family.</p>
+      <div class="donation-cards">
+        <div class="donation-card">
+          <h3>Google Pay</h3>
+          <p>Tap the button to copy the GPay UPI address.</p>
+          <button class="btn btn-secondary copy-btn" type="button" data-copy-value="your-upi-id@okhdfc">Copy GPay UPI</button>
+        </div>
+        <div class="donation-card">
+          <h3>PhonePe</h3>
+          <p>Tap the button to copy the PhonePe UPI address.</p>
+          <button class="btn btn-secondary copy-btn" type="button" data-copy-value="your-upi-id@ybl">Copy PhonePe UPI</button>
+        </div>
+        <div class="donation-card">
+          <h3>Bank Transfer</h3>
+          <p>Tap the button to copy bank transfer details.</p>
+          <button class="btn btn-secondary copy-btn" type="button" data-copy-value="Account Name: Your Name Here\nAccount No: XXXXXXXXXXXX\nIFSC: XXXX0000000">Copy Bank Details</button>
+        </div>
+      </div>
+      <p class="note-text">After payment, please confirm your donation by sending us a WhatsApp message.</p>
     </section>
 
     <section id="get-involved" class="container section reveal">
@@ -313,21 +338,23 @@
 
     <section id="contact" class="container section reveal">
       <h2>Contact</h2>
-      <form id="contact-form">
-        <label>
-          Name
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="4" required></textarea>
-        </label>
-        <button class="btn btn-primary" type="submit">Send Message</button>
-      </form>
+        <div class="contact-panel contact-form-panel">
+          <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+        </div>
     </section>
   </main>
 
