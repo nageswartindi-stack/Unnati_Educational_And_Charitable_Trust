@@ -75,4 +75,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 25);
   });
+
+  // Auto-scroll gallery
+  const galleryScroll = document.querySelector('.gallery-scroll');
+  if (galleryScroll) {
+    let scrollAmount = 0;
+    const scrollSpeed = 1; // pixels per frame
+    const maxScroll = galleryScroll.scrollWidth - galleryScroll.clientWidth;
+
+    function autoScroll() {
+      scrollAmount += scrollSpeed;
+      if (scrollAmount >= maxScroll) {
+        scrollAmount = 0; // reset to start
+      }
+      galleryScroll.scrollLeft = scrollAmount;
+      requestAnimationFrame(autoScroll);
+    }
+    autoScroll();
+  }
 });
